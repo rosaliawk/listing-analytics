@@ -24,7 +24,7 @@ def add_all_listing_to_temptable( csv_path, table_temp_name, conn ):
                     "state":np.str},
                  parse_dates = ['create_date'],
                  date_parser=dateparse)
-       
+ 
         df.loc[ (df.expire_date.isnull()), "expire_date"] = "12/31/2999 00:00:00.0"
 
         df["expire_date_temp"] = dateparse(df.expire_date)
@@ -32,13 +32,14 @@ def add_all_listing_to_temptable( csv_path, table_temp_name, conn ):
         df["expire_date"] = np.array(df.expire_date_temp,dtype="datetime64[us]").astype("datetime64[D]")
 
         df = df.drop(["expire_date_temp"],axis=1)
+ 
 
         df.to_sql(table_temp_name, conn, if_exists="replace", index=False)
 
         return True
 
-    except:
-        print ("Failed to import from %s" %csv_path) 
+    except (RuntimeError, TypeError, NameError, KeyError) as e:
+        print ("Failed to import from %s: err=%s" %(csv_path,str(e))) 
         return False
 
 
@@ -48,6 +49,7 @@ def insert_and_get_new_listing( csvfile, table_temp_name, conn ):
 
     df_new_from_csv = pd.DataFrame()
 
+
     if ( add_all_listing_to_temptable( csvfile, table_temp_name, conn ) == True ):
         
         try:
@@ -56,7 +58,7 @@ def insert_and_get_new_listing( csvfile, table_temp_name, conn ):
                "SELECT name FROM sqlite_master "\
                    "WHERE type = \"table\" AND name=\"%s\"" %db.table_name).fetchall())
                == 0 ):
-
+                
                 cur.execute('CREATE TABLE {table_name} '\
                       '({field_name_id} {field_type_integer} PRIMARY KEY ,'\
                       '{field_name_beds} {field_type_integer} ,'\
@@ -104,7 +106,9 @@ def insert_and_get_new_listing( csvfile, table_temp_name, conn ):
            
             cur.execute("DROP TABLE %s" %table_temp_name)            
  
+
             conn.commit()
+
 
             df_new_from_csv = df_new_from_csv.append( df_temp )
                 
