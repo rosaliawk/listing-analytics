@@ -1,13 +1,13 @@
-0) To run locally
+0) To run locally <br>
 a. git clone https://github.com/rosaliawk/listing-analytics.git <br>
-b. mkdir venv
-c. cd venv
-d. virtualevn venv
-e. . venv/bin/activate
-f. pip install Flask
+b. mkdir venv <br>
+c. cd venv <br>
+d. virtualevn venv <br>
+e. . venv/bin/activate <br>
+f. pip install Flask 
 
 
-1) To input listings from csvs
+1) To input listings from csvs <br>
 python input-listings.py [csv1, csv2, ...]
 
 This will return a json containing new listings found in the csvs
