@@ -2,9 +2,8 @@ import sqlite3
 from datetime import datetime
 from flask import g
 
-#sqlite_file = "pcfc.sl3"
 
-sqlite_file = "TakeHomeDB"
+sqlite_file = "data/TakeHomeDB"
 
 #do i need to bring up the database?
 
