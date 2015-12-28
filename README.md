@@ -4,7 +4,7 @@ b. mkdir venv <br>
 c. cd venv <br>
 d. virtualevn venv <br>
 e. . venv/bin/activate <br>
-f. pip install Flask <br>
+f. pip install Flask python numpy pandas sqlite3 <br>
 
 
 <b>1) To input listings from csvs <br></b>
