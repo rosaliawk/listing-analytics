@@ -20,5 +20,5 @@ This is will return a json containing mean, std, min, max, and mode <br>
 
 
 <b>3) To get Docker image<br></b> 
-look up rosaliawk/listing-analytics and rosaliawk/nginx-flask-sqlite3
+look up rosaliawk/listing-analytics
 
