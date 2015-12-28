@@ -1,5 +1,5 @@
 0) To run locally
-a. git clone https://github.com/rosaliawk/listing-analytics.git\n
+a. git clone https://github.com/rosaliawk/listing-analytics.git
 b. mkdir venv
 c. cd venv
 d. virtualevn venv
