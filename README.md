@@ -1,11 +1,10 @@
 0) To run locally
-
-a) git clone https://github.com/rosaliawk/listing-analytics.git 
-b) mkdir venv 
-c) cd venv 
-d) virtualevn venv 
-e) . venv/bin/activate 
-f) pip install Flask 
+a. git clone https://github.com/rosaliawk/listing-analytics.git <br>
+b. mkdir venv
+c. cd venv
+d. virtualevn venv
+e. . venv/bin/activate
+f. pip install Flask
 
 
 1) To input listings from csvs
