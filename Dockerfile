@@ -11,6 +11,12 @@ RUN pip install Flask
 
 COPY . /src
 
+#RUN . /src/rentpath/bin/activate
+
 VOLUME /data
 
+EXPOSE 5000
+
+
 CMD ["python","/src/input-listings.py"]
+
