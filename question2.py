@@ -10,8 +10,10 @@ common_stats = { "mean":"mean",
                 }
 
 def get_stats(city,state,beds):
+   
     conn = db.connect_db()
-#add sql injection guard    
+    
+
     prices = pd.read_sql_query( 'SELECT {field_name_price} '\
                   'FROM {table_name} '\
                   'WHERE '\
@@ -33,7 +35,8 @@ def get_stats(city,state,beds):
                           beds] )    
 
     if (len(prices) == 0):
-        return ('No listing found\n')
+        print ('No listing found\n')
+        return 'No listing found\n'
 
     prices_common_stats = prices.describe()
     
