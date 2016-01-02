@@ -8,7 +8,7 @@ f. pip install Flask python numpy pandas sqlite3 <br>
 
 
 <b>1) To input listings from csvs <br></b>
-python input-listings.py [csv1, csv2, ...] 
+python input-listings.py [csv1, csv2, cvs3...] 
 
 This will return a json containing new listings found in the csvs <br>
 
