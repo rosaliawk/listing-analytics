@@ -1,4 +1,4 @@
-<b>0) To run locally <br></b>
+<b>I) To run locally <br></b>
 a. git clone https://github.com/rosaliawk/listing-analytics.git <br>
 b. mkdir venv <br>
 c. cd venv <br>
@@ -19,20 +19,20 @@ curl -X POST  -H "Content-Type: application/json" --data '{"beds":2, "city":"San
 This is will return a json containing mean, std, min, max, and mode <br>
 
 
-<b>3) To run Docker image<br></b> 
+<b>II) To run Docker image<br></b> 
 a. pull rosaliawk/listing-analytics<br>
 b. mkdir data<br>
 c. cd data<br>
 d. cp [location of csv] .<br>
 e. cd..
 
-<b>3.1) To input new listings from csvs</b><br>
+<b>1) To input new listings from csvs</b><br>
 a. docker run -v [absolute path of csv location]:/data rosaliawk/listing-analytics python /src/input_listings.py data/listings1.csv<br>
 e.g. docker run -v /Users/Rosie/input_listings/data:/data --name listing-analytics rosaliawk/listing-analytics python /src/input_listings.py data/listings1.csv
 
 This will return a json containing new listings found in the csvs<br>
 
-<b>3.2) To get common stats</b><br>
+<b>2) To get common stats</b><br>
 a. docker run -p 80:5000 -v [absolute path of current directory/data]:/data --name listing-analytics rosaliawk/listing-analytics python /src/input_listings.py<br>
 e.g. docker run -p 80:5000 -v /Users/Rosie/input_listings/data:/data --name listing-analytics rosaliawk/listing-analytics python /src/input_listings.py<br>
 
